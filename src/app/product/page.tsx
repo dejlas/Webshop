@@ -12,7 +12,6 @@ type GetProductsData = {
 };
 const ProductPage: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
-  // const [product2, setProduct2] = useState<Product | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 

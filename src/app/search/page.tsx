@@ -28,7 +28,7 @@ const SearchPage: React.FC = () => {
   };
   useEffect(() => {
     getProducts();
-  }, []);
+  });
   const showDetails = async (id: string) => {
     try {
       const { data } = await axios.post("/api/product", {
@@ -78,7 +78,7 @@ const SearchPage: React.FC = () => {
         </div>
         <div className="m-10 grid grid-cols-3 grid-rows-2 gap-10">
           {products.map((product, index) => (
-            <div>
+            <div key={""}>
               <button
                 onClick={() => showDetails(product.id)}
                 key={index}

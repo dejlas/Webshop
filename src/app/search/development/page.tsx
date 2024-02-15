@@ -83,7 +83,7 @@ const DevelopmentPage: React.FC = () => {
         </div>
         <div className="m-10 grid grid-cols-3 grid-rows-2 gap-10">
           {products.map((product, index) => (
-            <div>
+            <div key={""}>
               <button
                 onClick={() => showDetails(product.id)}
                 key={index}

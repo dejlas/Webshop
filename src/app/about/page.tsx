@@ -24,7 +24,7 @@ const About: React.FC = () => {
           <li>And more!</li>
           <p>
             This template also allows us to highlight newer Next.js features
-            including: Next.js App Router Optimized for SEO using Next.js's
+            including: Next.js App Router Optimized for SEO using Next.js&apos;s
             Metadata React Server Components (RSCs) and Suspense Server Actions
             for mutations Edge runtime New Next.js 13 fetching and caching
             paradigms Dynamic OG images Styling with Tailwind CSS Automatic

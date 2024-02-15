@@ -52,11 +52,11 @@ const Home: React.FC = () => {
     getProducts();
   }, []);
 
-  const filteredProducts = products.filter(
+  /*  const filteredProducts = products.filter(
     (product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
       (!selectedCategory || product.category === selectedCategory)
-  );
+  );*/
   const showDetails = async (id: string) => {
     try {
       const { data } = await axios.post("/api/product", {
