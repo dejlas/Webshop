@@ -48,13 +48,13 @@ const AnimatedProducts: React.FC = () => {
   return (
     <div>
       <div className="inline-flex">
-        {[0, 1].map((groupIndex) => (
+        {[0, 1, 2].map((groupIndex) => (
           <div
             key={groupIndex}
             className="inline-flex"
             style={{
               display: "flex",
-              animation: `moveRightToLeft 20s linear infinite -${groupIndex}s`, // Adjust the delay based on your preference
+              animation: `moveRightToLeft 20s linear infinite `,
             }}
           >
             {targetProducts.map((product, index) => (
@@ -94,10 +94,10 @@ const AnimatedProducts: React.FC = () => {
       </div>
       <style jsx>{`
         @keyframes moveRightToLeft {
-          -20% {
+          0% {
             transform: translateX(100%);
           }
-          100% {
+          0% {
             transform: translateX(-100%);
           }
         }
