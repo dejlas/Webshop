@@ -2,6 +2,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { ProductWithQuantity } from "./productWithQuantity";
 import Image from "next/image";
+import axios from "axios";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -62,6 +63,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
   );
 
   if (!isOpen) return null;
+
+  const handlePayment = async () => {
+    try {
+      const { data } = await axios.post("/api/checkout", {
+        amount: total * 100,
+      });
+      if (data) {
+        window.location.href = data.url;
+      } else {
+        throw new Error("URL not found in response");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="sidebar">
@@ -141,7 +157,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
                 </div>
 
                 <div className="fixed bottom-0 right-16 px-5 py-2">
-                  <button className="rounded bg-blue-600 text-white px-5 py-1">
+                  <button
+                    className="rounded bg-blue-600 text-white px-5 py-1"
+                    onClick={handlePayment}
+                  >
                     Proceed To Payment
                   </button>
                 </div>

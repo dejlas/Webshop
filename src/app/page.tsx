@@ -13,7 +13,6 @@ const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [product, setProduct] = useState<Product | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const router = useRouter();
 
   const targetProductIds = [
@@ -52,11 +51,6 @@ const Home: React.FC = () => {
     getProducts();
   }, []);
 
-  /*  const filteredProducts = products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      (!selectedCategory || product.category === selectedCategory)
-  );*/
   const showDetails = async (id: string) => {
     try {
       const { data } = await axios.post("/api/product", {
@@ -150,6 +144,7 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
+
         <div className="inline-flex overflow-hidden">
           <AnimatedProducts></AnimatedProducts>
         </div>
