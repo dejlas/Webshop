@@ -68,6 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, children }) => {
     try {
       const { data } = await axios.post("/api/checkout", {
         amount: total * 100,
+        cart: cart,
       });
       if (data) {
         window.location.href = data.url;
